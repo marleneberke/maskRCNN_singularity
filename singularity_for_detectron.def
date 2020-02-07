@@ -1,0 +1,19 @@
+bootstrap: docker
+from: nvidia/cuda:10.1-cudnn7-devel
+
+%files
+	conda.sh /conda.sh
+
+%environment
+	export PATH=$PATH:/miniconda/bin
+
+%runscript
+	exec "$@"	
+
+%post
+	apt-get update
+	apt-get install -y git wget libglib2.0-0 libsm6 libxrender-dev 
+	
+	# Install Conda
+	bash conda.sh -b -p /miniconda
+	rm conda.sh
