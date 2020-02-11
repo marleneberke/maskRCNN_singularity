@@ -24,6 +24,7 @@ $SING_EXEC exec $CONT bash -c "conda create -y -p ${CONDA_ENV} python=3.6"
 # ./run.sh conda install -y --file requirements.txt
 ./run.sh pip install -r requirements.txt
 # Some of Detectron2 prereqs
+./run.sh pip install torch torchvision
 ./run.sh pip install -U 'git+https://github.com/facebookresearch/fvcore'
 ./run.sh pip install cython opencv-python scipy
 ./run.sh pip install Pillow==6.2.2
